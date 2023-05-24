@@ -8,6 +8,7 @@ tasks:
 
   run: 
     cmds: 
+      - task build
       - go run main.go
 
   test:
