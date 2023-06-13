@@ -7,13 +7,12 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
-	
 )
 
 func writeJSON(w http.ResponseWriter, status int, v any) error {
 	w.WriteHeader(status )
 	w.Header().Set("Content-Type", "application/json")
-	return json.NewEncoder(w ).Encode(v)
+	return json.NewEncoder(w).Encode(v)
 }
 
 type ApiError struct {
@@ -34,7 +33,9 @@ type APIServer struct {
 }
 
 func NewAPIServer(listenAddr string) *APIServer {
-	return &APIServer{listenAddr: listenAddr}
+	return &APIServer{
+		listenAddr: listenAddr,
+	}
 }
 func (s *APIServer) Run() {
 	router := mux.NewRouter()
